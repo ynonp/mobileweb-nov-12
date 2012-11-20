@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQM Demo 1</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <div data-role="header">
+            <h1>Welcome to jQM</h1>
+        </div>
+
+        <div data-role="content">
+            This is soo cool to write web sites
+            <a href="other.html" data-transition="slide">Go to Page2</a>
+            <a href="#" data-role="button" data-inline="true">Click Me</a>
+            <a href="#" data-role="button" data-theme="b" data-inline="true">Don't Click Me</a>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h3>wow... I have an app</h3>
+        </div>
+    </div>
+
+
+    <div data-role="page" id="page2" data-add-back-btn="true">
+        <div data-role="header">
+            <h1>Page 2</h1>
+        </div>
+
+        <div data-role="content">
+            This is soo cool to write web sites
+        </div>
+
+        <div data-role="footer">
+
+        </div>
+    </div>
+</body>
+</html>
