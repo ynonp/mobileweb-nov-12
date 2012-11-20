@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Menu</title>
+
+    <style>
+
+        nav.phone {
+            display: none;
+        }
+
+        nav.phone select {
+            width: 100%;
+        }
+
+        @media (max-width: 500px) {
+            nav.phone   { display: block; }
+            nav.desktop { display: none; }
+        }
+
+        ul {
+            background: yellow;
+        }
+        li {
+            display: inline-block;
+            width: 80px;
+            height: 20px;
+            border-right: 2px solid purple;
+            text-align: center;
+        }
+
+        li:last-child {
+            border-right: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="desktop">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <nav class="phone">
+        <select>
+            <option>Home</option>
+            <option>About</option>
+            <option>Gallery</option>
+
+        </select>
+    </nav>
+
+
+</body>
+</html>
