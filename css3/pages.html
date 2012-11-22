@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pages Demo</title>
+
+    <style>
+        div#viewport {
+            border: 5px solid hotpink;
+            width: 320px;
+            height: 180px;
+            position:relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        div div {
+            width: 320px;
+            height: 180px;
+            position: absolute;
+            -webkit-transition: all 0.5s;
+        }
+
+        div.left div {
+            -webkit-transform: translateX(100%);
+        }
+
+        div.right div {
+            -webkit-transform: translateX(-100%);
+        }
+
+        div div:nth-child(1) {
+            background: blue;
+            left: -100%;
+        }
+
+        div div:nth-child(2) {
+            background: red;
+            left: 0;
+        }
+
+        div div:nth-child(3) {
+            background: green;
+            left: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id=viewport>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<button id="btn-prev">Prev</button>
+<button id="btn-next">Next</button>
+
+
+<script>
+    var btn_n = document.querySelector('#btn-next');
+    var btn_p = document.querySelector('#btn-prev');
+    var container = document.querySelector('#viewport');
+
+    function moveRight() {
+        if ( container.classList.contains('left') ) {
+            // I was in left
+            container.classList.remove('left');
+        } else if ( container.classList.contains('right') ) {
+            // I was in right
+        } else {
+            // I was in center
+            container.classList.add('right');
+        }
+    }
+
+    function moveLeft() {
+        if ( container.classList.contains('right') ) {
+            // I was in left
+            container.classList.remove('right');
+        } else if ( container.classList.contains('left') ) {
+            // I was in right
+        } else {
+            // I was in center
+            container.classList.add('left');
+        }
+    }
+
+
+    btn_n.addEventListener('click', moveRight );
+    btn_p.addEventListener('click', moveLeft );
+</script>
+
+</body>
+</html>

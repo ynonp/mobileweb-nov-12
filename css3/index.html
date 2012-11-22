@@ -5,10 +5,21 @@
 
 
     <style>
+        html {
+            height: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        img.large {
+            -webkit-transform: scale(1.4) rotate(4deg);
+        }
+
         body {
             font-size: 16px;
             padding: 0;
             margin: 0;
+            height: 100%;
+            background-repeat: no-repeat;
 
             background: rgb(247,251,252); /* Old browsers */
             background: -moz-linear-gradient(top,  rgba(247,251,252,1) 0%, rgba(217,237,242,1) 40%, rgba(173,217,228,1) 100%); /* FF3.6+ */
@@ -112,12 +123,13 @@
 
         ul li {
             display: inline-block;
-            margin: 5px;
+            margin: 20px;
         }
 
         ul li img {
             border-radius: 10px;
             box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.8);
+            -webkit-transition: all 0.4s;
 
         }
     </style>
@@ -134,7 +146,7 @@
     <div class="content">
         <ul>
             <li>
-                <img src="img.jpg" alt="happy hedgehog" />
+                <img src="img.jpg" alt="happy hedgehog"/>
             </li>
 
             <li>
@@ -159,5 +171,7 @@
 
         </ul>
     </div>
+
+<script src="action.js"></script>
 </body>
 </html>
