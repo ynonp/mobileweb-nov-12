@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transition FX</title>
+    <style>
+
+
+
+
+        @-webkit-keyframes a1 {
+            0% {
+               margin-left: 0;
+            }
+
+            20% {
+                margin-left: 100px;
+            }
+
+            80% {
+                margin-left: 180px;
+            }
+
+            100% {
+                margin-left: 0;
+            }
+        }
+
+        @-webkit-keyframes a2 {
+            0% {
+                -webkit-transform: rotate(0deg) translateX(-100px);
+            }
+
+            50% {
+                -webkit-transform: rotate(180deg) scale(1.5) translateX(-100px);
+
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg) translateX(-50px);
+            }
+        }
+
+        h1 {
+            font-size: 2em;
+            -webkit-transition: all 0.5s;
+            -webkit-animation: a2 3s infinite;
+            width: 80px;
+
+        }
+
+        h1.large {
+            font-size: 6em;
+        }
+
+        h1.hidden {
+            opacity: 0;
+        }
+
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h1>Hello</h1>
+    <button id="btn-large">Click Me</button>
+    <button id="btn-hide">Hide</button>
+
+    <script>
+        var btn_large = document.querySelector('button#btn-large');
+        var btn_hide  = document.querySelector('button#btn-hide');
+        var h1  = document.querySelector('h1');
+
+        function makeBigText() {
+            h1.classList.toggle('large');
+        }
+
+        function hideText() {
+            h1.classList.toggle('hidden');
+        }
+
+        btn_large.addEventListener('click', makeBigText );
+        btn_hide.addEventListener('click', hideText );
+
+
+
+    </script>
+
+
+    <div class="box"></div>
+</body>
+</html>

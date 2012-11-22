@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello CSS3</title>
+
+
+    <style>
+        body {
+            font-size: 16px;
+            padding: 0;
+            margin: 0;
+
+            background: rgb(247,251,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(247,251,252,1) 0%, rgba(217,237,242,1) 40%, rgba(173,217,228,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,251,252,1)), color-stop(40%,rgba(217,237,242,1)), color-stop(100%,rgba(173,217,228,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(247,251,252,1) 0%,rgba(217,237,242,1) 40%,rgba(173,217,228,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(247,251,252,1) 0%,rgba(217,237,242,1) 40%,rgba(173,217,228,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(247,251,252,1) 0%,rgba(217,237,242,1) 40%,rgba(173,217,228,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(247,251,252,1) 0%,rgba(217,237,242,1) 40%,rgba(173,217,228,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7fbfc', endColorstr='#add9e4',GradientType=0 ); /* IE6-9 */
+
+        }
+
+        header h1 {
+            font-size: 1.7666em;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            height: 2em;
+
+            background: rgb(181,189,200); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(181,189,200,1) 0%, rgba(130,140,149,1) 36%, rgba(40,52,59,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(181,189,200,1)), color-stop(36%,rgba(130,140,149,1)), color-stop(100%,rgba(40,52,59,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(181,189,200,1) 0%,rgba(130,140,149,1) 36%,rgba(40,52,59,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
+            color: white;
+            padding: 10px;
+            line-height: 2em;
+            text-align: center;
+        }
+
+
+        .btn {
+            color: white;
+            background: rgb(59,103,158); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(59,103,158,1) 0%, rgba(43,136,217,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(59,103,158,1)), color-stop(50%,rgba(43,136,217,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+            padding: 10px;
+            text-decoration: none;;
+            border-radius: 16px;
+        }
+
+        div.circle {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            border-radius: 100px;
+        }
+
+
+        button.css3button {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #ffffff;
+            padding: 3px 10px;
+
+            background: -moz-linear-gradient(
+                top,
+                #ffbdf5 0%,
+                #ff82ec 25%,
+                #fc46e1);
+            background: -webkit-gradient(
+                linear, left top, left bottom,
+                from(#ffbdf5),
+                color-stop(0.25, #ff82ec),
+                to(#fc46e1));
+            -moz-border-radius: 30px;
+            -webkit-border-radius: 30px;
+            border-radius: 30px;
+            border: 3px solid #ffffff;
+            -moz-box-shadow:
+                0px 3px 11px rgba(000,000,000,0.5),
+                inset 0px 0px 1px rgba(255,000,217,1);
+            -webkit-box-shadow:
+                0px 3px 11px rgba(000,000,000,0.5),
+                inset 0px 0px 1px rgba(255,000,217,1);
+            box-shadow:
+                0px 3px 11px rgba(000,000,000,0.5),
+                inset 0px 0px 1px rgba(255,000,217,1);
+            text-shadow:
+                0px -1px 0px rgba(000,000,000,0.2),
+                0px 1px 0px rgba(255,255,255,0.3);
+
+            float: left;
+        }
+
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        ul li img {
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.8);
+
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <header>
+        <button type="button" name="" value="" class="css3button">Back</button>
+        <h1>Welcome To CSS3</h1>
+
+    </header>
+
+    <div class="content">
+        <ul>
+            <li>
+                <img src="img.jpg" alt="happy hedgehog" />
+            </li>
+
+            <li>
+                <img src="img.jpg" alt="happy hedgehog" />
+            </li>
+
+            <li>
+                <img src="img.jpg" alt="happy hedgehog" />
+            </li>
+
+            <li>
+                <img src="img.jpg" alt="happy hedgehog" />
+            </li>
+
+            <li>
+                <img src="img.jpg" alt="happy hedgehog" />
+            </li>
+
+            <li>
+                <img src="img.jpg" alt="happy hedgehog" />
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
