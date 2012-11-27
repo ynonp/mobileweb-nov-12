@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find My Location</title>
+    <style>
+
+        div.spin {
+            margin: 100px auto;
+            background: #a7a7a7;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <p></p>
+
+    <div class="spin"></div>
+
+    <button id="btn-map">Go To Map</button>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/spin.js/1.2.7/spin.min.js"></script>
+<script>
+
+    var spinner_div = document.querySelector('div.spin');
+    var opts = {
+        lines: 13, // The number of lines to draw
+        length: 10, // The length of each line
+        width: 4, // The line thickness
+        radius: 16, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        color: '#000', // #rgb or #rrggbb
+        speed: 1, // Rounds per second
+        trail: 37, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: 'auto', // Top position relative to parent in px
+        left: 'auto' // Left position relative to parent in px
+    };
+
+    var spinner = new Spinner(opts).spin(spinner_div);
+    var coords;
+
+
+    function show_location( loc ) {
+        console.dir( loc );
+        var p = document.querySelector('p');
+        p.innerHTML = JSON.stringify({
+            latitude: loc.coords.latitude,
+            longitude: loc.coords.longitude
+        });
+
+        spinner.stop();
+        spinner_div.classList.add('hidden');
+
+        coords = loc.coords;
+    }
+
+    function error( err ) {
+        alert(err);
+    }
+
+    navigator.geolocation.getCurrentPosition(
+            show_location,
+            error,
+            { enableHighAccuracy: true }
+    );
+
+
+    var btn = document.querySelector('button');
+
+    btn.addEventListener('click', function() {
+        window.location.href = 'http://maps.apple.com/?q='
+        + coords.latitude + ','
+        + coords.longitude;
+    });
+
+</script>
+</body>
+</html>

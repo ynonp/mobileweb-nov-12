@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find My Location</title>
+</head>
+<body>
+
+
+    <script>
+
+
+
+        function show_location( loc ) {
+            console.dir( loc );
+        }
+
+        function error( err ) {
+            alert(err);
+        }
+
+        navigator.geolocation.getCurrentPosition(
+                show_location,
+                error,
+                { enableHighAccuracy: true }
+        );
+
+
+    </script>
+</body>
+</html>

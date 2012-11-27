@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-
-
 var form   = document.querySelector('form');
 
 form.addEventListener('input', function() {
@@ -33,10 +31,15 @@ if ( values != null ) {
     for ( var i=0; i < inputs.length; i++ ) {
         inputs[i].value = values[i];
     }
+
 }
 
+var color_input = document.querySelector('input[type="color"]');
+color_input.addEventListener('input', function() {
+    document.body.style.backgroundColor = color_input.value;
+});
 
-
+document.body.style.backgroundColor = color_input.value;
 
 
 /*
