@@ -25,6 +25,7 @@
     <div class="spin"></div>
 
     <button id="btn-map">Go To Map</button>
+    <button id="btn-navigate">Go To Store</button>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/spin.js/1.2.7/spin.min.js"></script>
 <script>
@@ -33,9 +34,10 @@
     if (/(iPhone|iPod|iPad)/.test(navigator.userAgent)) {
         /* This is iOS */
         maps_url = 'http://maps.apple.com';
-    }
-    if (/Android/.test(navigator.userAgent)) {
+    } else if (/Android/.test(navigator.userAgent)) {
         /* This is Android */
+        maps_url = 'http://maps.google.com';
+    } else {
         maps_url = 'http://maps.google.com';
     }
 
@@ -89,13 +91,25 @@
     );
 
 
-    var btn = document.querySelector('button');
+    var btn = document.querySelector('#btn-map');
 
     btn.addEventListener('click', function() {
-        window.location.href = 'http://maps.apple.com/?q='
+        window.location.href = maps_url + '/?q='
         + coords.latitude + ','
         + coords.longitude;
     });
+
+    var btn_nav = document.querySelector('#btn-navigate');
+
+
+    btn_nav.addEventListener('click', function() {
+        var url = "http://maps.google.com" + "/maps?saddr=" +
+                coords.latitude + ',' + coords.longitude +
+                "&daddr=%D7%9E%D7%9B%D7%9C%D7%9C%D7%AA+%D7%A9%D7%A0%D7%A7%D7%A8,+%D7%A8%D7%9E%D7%AA+%D7%92%D7%9F,+%D7%99%D7%A9%D7%A8%D7%90%D7%9C&hl=iw&ie=UTF8&sll=31.406252,35.081816&sspn=3.853052,4.603271&geocode=FWzf6AEdRYoSAikzOL_Cq0wdFTFk8O3CAFFePg%3BFdyn6QEdAg0TAilv5fY9xEsdFTE-a4hFsAI0Pw&oq=%D7%9E%D7%9B%D7%9C%D7%9C%D7%AA+&mra=ls&t=m&z=13";
+
+        window.location.href = url;
+    });
+
 
 </script>
 </body>

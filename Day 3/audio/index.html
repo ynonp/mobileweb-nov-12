@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elephant Sound</title>
+</head>
+<body>
+    <img src="http://image.shutterstock.com/display_pic_with_logo/88446/88446,1202850544,2/stock-vector-crazy-elephant-vector-illustration-9388918.jpg" />
+
+    <audio src="elephant.mp3" />
+
+    <script>
+
+        var img = document.querySelector('img');
+        var audio = document.querySelector('audio');
+
+        img.addEventListener('click', function() {
+            audio.play();
+        });
+
+    </script>
+</body>
+</html>
