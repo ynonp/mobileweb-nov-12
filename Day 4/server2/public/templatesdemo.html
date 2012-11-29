@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Templates Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.1/handlebars.min.js"></script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+
+    <script type=text/template id="ajax1">
+        <div style="background-color: {{color}}">
+            <h1>{{name}}</h1>
+        </div>
+    </script>
+
+    <script type=text/template class=entry>
+        <div>
+            <h1>{{name}}</h1>
+            <h3>{{hobbies}}</h3>
+        </div>
+
+    </script>
+
+    <script type="text/template" id="list">
+        <ul>
+            {{#each colors}}
+            <li style="background-color: {{this}}">{{this}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script>
+
+        var entry = document.querySelector('#ajax1');
+        var content = entry.innerHTML;
+
+        $.get('/data', function(data) {
+            var ctx = data;
+
+            var template = Handlebars.compile( content );
+
+            var result = template( ctx );
+
+            var result_el = document.querySelector('#container');
+            result_el.innerHTML = result;
+
+        });
+
+
+        /*
+
+
+        var ctx = {
+            name: 'Angry Zombie',
+            hobbies: 'Eating your brainz'
+        };
+
+
+        var colors_ctx = {
+            colors: [ 'red', 'blue', 'green', 'yellow']
+        };
+
+        var template = Handlebars.compile( content );
+
+        var result = template( colors_ctx );
+
+        var result_el = document.querySelector('#container');
+        result_el.innerHTML = result;
+        */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MagicIdea</title>
+    <meta name="viewport" content="width=device-width" >
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+</head>
+<body>
+    <div data-role=page id="home" >
+        <div data-role=header>
+            <h1>MagicIdea</h1>
+        </div>
+
+        <div data-role=content>
+            <ul data-role=listview>
+                <li><a href="#app" data-transition=slide data-index=0>Zombie Slayer</a></li>
+                <li><a href="#app" data-transition=slide data-index=1>Mad Zombie</a></li>
+                <li><a href="#app" data-transition=slide data-index=2>Vampire Slayer Ultimate</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/template" id="tmpl-app">
+        <div data-role=page id="app" data-add-back-btn="true">
+            <div data-role=header>
+                <h1>{{title}}</h1>
+            </div>
+
+            <div data-role=content>
+                {{text}}
+                <button data-role="button">Like</button>
+            </div>
+
+        </div>
+
+
+    </script>
+
+    <script>
+
+        var template_html = $('#tmpl-app').html();
+
+        var data = {
+            ideas: [
+                { title: 'Zombie Slayer', text: 'Kill zombies and eat their brainz'},
+                { title: 'Mad Zombie', text: 'Kill humans and eat their brainz'},
+                { title: 'Vampire Slayer Ultimate', text: 'Take over the world'}
+
+            ]
+        };
+
+        function create_page( index ) {
+            $('#app').remove();
+            var template = Handlebars.compile(template_html);
+
+            var result = template( data.ideas[index] );
+            var newpage = $('body').append( result );
+            newpage.trigger('create');
+        }
+
+        $('#home a').click(function() {
+            var idx = $(this).attr('data-index');
+            create_page(idx);
+        });
+
+    </script>
+</body>
+</html>
