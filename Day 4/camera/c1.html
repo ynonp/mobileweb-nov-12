@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Demo</title>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <input type="file" accept="image/*" id="imageLoader"/>
+    <canvas id="imageCanvas" width=300 height="300"></canvas>
+    <button id="btn-blue">Blue</button>
+    <button id="btn-red">Red</button>
+
+    <style>
+        canvas {
+           -webkit-user-select: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+    </style>
+    <script>
+        var imageLoader = document.getElementById('imageLoader');
+        imageLoader.addEventListener('change', handleImage, false);
+        var canvas = document.getElementById('imageCanvas');
+        var ctx = canvas.getContext('2d');
+
+
+        function handleImage(e) {
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var img = new Image();
+                img.onload = function(){
+                    ctx.drawImage(img,0,0);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        }
+
+        function draw_circle( color ) {
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc( 100, 100, 20, 0, Math.PI * 2 );
+            ctx.fill();
+        }
+
+        // touchstart, touchmove, touchend
+
+        canvas.addEventListener('touchmove', function(e) {
+            var touches = e.touches;
+            var t = touches[0];
+            var x = t.clientX - canvas.offsetLeft;
+            var y = t.clientY - canvas.offsetTop;
+
+            ctx.beginPath();
+            ctx.fillStyle = 'orange';
+
+            ctx.arc( x-5, y-5, 10, 0, Math.PI * 2 );
+            ctx.fill();
+            e.preventDefault();
+
+        });
+
+        canvas.addEventListener('touchstart', function(e) {
+            var touches = e.touches;
+            var t = touches[0];
+
+            var x = t.clientX - canvas.offsetLeft;
+            var y = t.clientY - canvas.offsetTop;
+
+            ctx.beginPath();
+            ctx.fillStyle = 'red';
+
+            ctx.arc( x-5, y-5, 10, 0, Math.PI * 2 );
+            ctx.fill();
+        });
+
+        document.querySelector('#btn-blue').addEventListener('click', function() {
+            draw_circle( 'blue' );
+        });
+
+        document.querySelector('#btn-red').addEventListener('click', function() {
+            draw_circle( 'red' );
+        });
+
+    </script>
+</body>
+</html>
